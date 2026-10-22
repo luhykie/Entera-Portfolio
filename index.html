@@ -1,0 +1,269 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Lyka Mae L. Entera | Portfolio</title>
+<meta name="description" content="Lyka Mae L. Entera, BS Information Technology student at the University of San Jose–Recoletos. Web development, cybersecurity and system design.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,600;9..144,700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #faf7f2;
+    --surface: #ffffff;
+    --text: #1f1b16;
+    --muted: #6b645a;
+    --line: #e6dfd3;
+    --accent: #c2410c;
+    --accent-soft: #fde8dc;
+    --radius: 14px;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --bg: #15120f;
+      --surface: #1e1a16;
+      --text: #f3ede4;
+      --muted: #a99f90;
+      --line: #322c25;
+      --accent: #fb923c;
+      --accent-soft: #3a2415;
+    }
+  }
+  * { box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  body {
+    margin: 0;
+    background: var(--bg);
+    color: var(--text);
+    font-family: "Inter", system-ui, sans-serif;
+    line-height: 1.65;
+    -webkit-font-smoothing: antialiased;
+  }
+  a { color: inherit; }
+  .wrap { max-width: 920px; margin: 0 auto; padding: 0 20px; }
+
+  /* Nav */
+  header.nav {
+    position: sticky; top: 0; z-index: 10;
+    background: color-mix(in srgb, var(--bg) 88%, transparent);
+    backdrop-filter: blur(8px);
+    border-bottom: 1px solid var(--line);
+  }
+  .nav .wrap { display: flex; align-items: center; justify-content: space-between; height: 58px; }
+  .logo { font-family: "Fraunces", serif; font-weight: 700; text-decoration: none; font-size: 1.1rem; }
+  .nav ul { display: flex; gap: 20px; list-style: none; margin: 0; padding: 0; }
+  .nav ul a { text-decoration: none; color: var(--muted); font-size: .92rem; font-weight: 500; }
+  .nav ul a:hover { color: var(--accent); }
+  @media (max-width: 640px) { .nav ul { display: none; } }
+
+  /* Hero */
+  .hero { padding: 88px 0 56px; }
+  .eyebrow { color: var(--accent); font-weight: 600; font-size: .9rem; letter-spacing: .04em; text-transform: uppercase; }
+  .hero h1 {
+    font-family: "Fraunces", serif;
+    font-size: clamp(2.4rem, 7vw, 4rem);
+    line-height: 1.08;
+    margin: 10px 0 18px;
+  }
+  .hero p.lead { font-size: 1.15rem; color: var(--muted); max-width: 620px; margin: 0 0 28px; }
+  .btns { display: flex; flex-wrap: wrap; gap: 12px; }
+  .btn {
+    display: inline-block; padding: 11px 20px; border-radius: 999px;
+    text-decoration: none; font-weight: 600; font-size: .95rem;
+    border: 1.5px solid var(--accent); transition: transform .15s ease;
+  }
+  .btn:hover { transform: translateY(-2px); }
+  .btn.primary { background: var(--accent); color: #fff; }
+  .btn.ghost { color: var(--accent); }
+  @media (prefers-color-scheme: dark) { .btn.primary { color: #1a0f07; } }
+
+  /* Sections */
+  section { padding: 56px 0; border-top: 1px solid var(--line); }
+  h2 { font-family: "Fraunces", serif; font-size: 1.9rem; margin: 0 0 28px; }
+  .about p { max-width: 680px; margin: 0 0 14px; }
+
+  /* Cards */
+  .grid { display: grid; gap: 18px; grid-template-columns: repeat(auto-fit, minmax(270px, 1fr)); }
+  .card {
+    background: var(--surface); border: 1px solid var(--line);
+    border-radius: var(--radius); padding: 22px;
+    display: flex; flex-direction: column; gap: 10px;
+    transition: transform .2s ease, border-color .2s ease;
+  }
+  .card:hover { transform: translateY(-3px); border-color: var(--accent); }
+  .card h3 { margin: 0; font-size: 1.15rem; }
+  .card p { margin: 0; color: var(--muted); font-size: .95rem; }
+  .role { font-size: .82rem; font-weight: 600; color: var(--accent); }
+  .tags { display: flex; flex-wrap: wrap; gap: 6px; margin-top: auto; padding-top: 6px; }
+  .tag { background: var(--accent-soft); color: var(--accent); font-size: .78rem; font-weight: 600; padding: 3px 10px; border-radius: 999px; }
+  .card a.link { font-size: .9rem; font-weight: 600; color: var(--accent); text-decoration: none; }
+  .card a.link:hover { text-decoration: underline; }
+
+  /* Skills */
+  .skills { display: flex; flex-wrap: wrap; gap: 10px; }
+  .skills span {
+    background: var(--surface); border: 1px solid var(--line);
+    padding: 7px 16px; border-radius: 999px; font-weight: 500; font-size: .92rem;
+  }
+  .sub { color: var(--muted); font-size: .85rem; font-weight: 600; text-transform: uppercase; letter-spacing: .05em; margin: 24px 0 10px; }
+  .sub:first-of-type { margin-top: 0; }
+
+  /* Timeline */
+  .timeline { list-style: none; margin: 0; padding: 0; border-left: 2px solid var(--line); }
+  .timeline li { position: relative; padding: 0 0 22px 24px; }
+  .timeline li::before {
+    content: ""; position: absolute; left: -7px; top: 7px;
+    width: 12px; height: 12px; border-radius: 50%;
+    background: var(--accent); border: 2px solid var(--bg);
+  }
+  .timeline strong { display: block; }
+  .timeline span { color: var(--muted); font-size: .92rem; }
+
+  ul.plain { list-style: none; margin: 0; padding: 0; display: grid; gap: 10px; }
+  ul.plain li { background: var(--surface); border: 1px solid var(--line); border-radius: 10px; padding: 12px 16px; }
+
+  /* Contact + footer */
+  .contact p { max-width: 560px; color: var(--muted); }
+  footer { padding: 28px 0 40px; border-top: 1px solid var(--line); color: var(--muted); font-size: .88rem; }
+</style>
+</head>
+<body>
+
+<header class="nav">
+  <div class="wrap">
+    <a class="logo" href="#top">Lyka Entera</a>
+    <nav>
+      <ul>
+        <li><a href="#about">About</a></li>
+        <li><a href="#projects">Projects</a></li>
+        <li><a href="#skills">Skills</a></li>
+        <li><a href="#experience">Experience</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<main id="top">
+  <div class="wrap">
+
+    <!-- HERO -->
+    <div class="hero">
+      <div class="eyebrow">BS Information Technology · Class of 2027</div>
+      <h1>Hi, I'm Lyka Mae Entera.</h1>
+      <p class="lead">A student leader and developer who builds web projects and is growing into cybersecurity and system design.</p>
+      <div class="btns">
+        <a class="btn primary" href="#projects">See my projects</a>
+        <a class="btn ghost" href="#contact">Get in touch</a>
+      </div>
+    </div>
+
+    <!-- ABOUT -->
+    <section id="about" class="about">
+      <h2>About me</h2>
+      <p>I'm a 4th-year BS Information Technology student at the University of San Jose–Recoletos in Cebu City, expected to graduate in June 2027.</p>
+      <p>I lead my capstone team and have held several officer roles in the Information and Computer Technology Organization (ICTO). I never submit a project just to pass it, and I like the pressure of leading because it pushes me to do more.</p>
+      <p>Web development is where I started. Cybersecurity is where my curiosity is heading now.</p>
+    </section>
+
+    <!-- PROJECTS -->
+    <section id="projects">
+      <h2>Projects</h2>
+      <div class="grid">
+
+        <article class="card">
+          <div class="role">Capstone · Project Leader</div>
+          <h3>CONEXIA</h3>
+          <p>An Intelligent Document Management System with Workflow Automation for international and local collaborations.</p>
+          <!-- TODO: add your tech stack tags below, and a link if you have a repo or demo -->
+          <div class="tags"><span class="tag">Capstone</span><span class="tag">Workflow Automation</span></div>
+        </article>
+
+        <article class="card">
+          <div class="role">Solo · 24-hour hackathon</div>
+          <h3>Biyahero</h3>
+          <p>Built alone in 24 hours during the SCS Days 2026 Hackathon. It went on to place 1st Runner-Up at the SCS Days 2026 Ideathon.</p>
+          <!-- TODO: add one sentence on what Biyahero does, its tech stack, and a GitHub link -->
+          <div class="tags"><span class="tag">Hackathon</span><span class="tag">1st Runner-Up</span></div>
+        </article>
+
+        <article class="card">
+          <div class="role">Cybersecurity · Self-paced</div>
+          <h3>Advent of Cyber 2025</h3>
+          <p>Completed the daily cybersecurity challenges without skipping a day, my first hands-on step into security.</p>
+          <div class="tags"><span class="tag">Cybersecurity</span><span class="tag">TryHackMe</span></div>
+        </article>
+
+        <!-- TO ADD A NEW PROJECT: copy one <article class="card"> block above and edit the text.
+             For a link, add this line before the tags:
+             <a class="link" href="https://github.com/YOUR-USERNAME/REPO" target="_blank" rel="noopener">View on GitHub →</a> -->
+
+      </div>
+    </section>
+
+    <!-- SKILLS -->
+    <section id="skills">
+      <h2>Skills</h2>
+      <div class="sub">Technologies</div>
+      <div class="skills">
+        <span>C++</span><span>JavaScript</span><span>Python</span><span>PHP</span>
+        <span>MySQL</span><span>HTML</span><span>CSS</span><span>React.js</span>
+      </div>
+      <div class="sub">Strengths</div>
+      <div class="skills">
+        <span>Project Management</span><span>Detail Oriented</span><span>Adaptability</span>
+        <span>Resilient</span><span>Active Listening</span><span>Conflict Resolution</span>
+      </div>
+    </section>
+
+    <!-- EXPERIENCE -->
+    <section id="experience">
+      <h2>Leadership &amp; Education</h2>
+      <div class="sub">ICTO · University of San Jose–Recoletos</div>
+      <ul class="timeline">
+        <li><strong>Organization Consultant</strong><span>2026 – Present</span></li>
+        <li><strong>Vice President, Ways &amp; Means</strong><span>2025 – 2026</span></li>
+        <li><strong>Vice President, External</strong><span>2024 – 2025</span></li>
+      </ul>
+      <div class="sub">Education</div>
+      <ul class="timeline">
+        <li><strong>BS Information Technology, University of San Jose–Recoletos</strong><span>2023 – Present · Expected June 2027</span></li>
+        <li><strong>Senior High School (STEM), South Western University PHINMA</strong><span>2021 – 2023</span></li>
+      </ul>
+    </section>
+
+    <!-- ACHIEVEMENTS -->
+    <section id="achievements">
+      <h2>Achievements &amp; Certifications</h2>
+      <ul class="plain">
+        <li>1st Runner-Up, SCS Days 2026 Ideathon</li>
+        <li>Participant, SCS Days 2026 Hackathon</li>
+        <li>Participant, Advent of Cyber 2025</li>
+        <li>Participant, 2-Day Blockchain Tech Workshop on Coding Smart Contracts in CashScript by Paytaca</li>
+        <li>Course Completer, NetAcad: Introduction to Cybersecurity</li>
+        <li>Academic Excellence Award · Eloquent Speaker Award · Best in Research (earlier years)</li>
+      </ul>
+    </section>
+
+    <!-- CONTACT -->
+    <section id="contact" class="contact">
+      <h2>Let's connect</h2>
+      <p>I'm open to internships, mentorship, and projects where I can learn and contribute.</p>
+      <div class="btns">
+        <a class="btn primary" href="mailto:lykaentera@gmail.com">Email me</a>
+        <!-- TODO: replace YOUR-USERNAME, and add LinkedIn if you have it -->
+        <a class="btn ghost" href="https://github.com/YOUR-USERNAME" target="_blank" rel="noopener">GitHub</a>
+      </div>
+    </section>
+
+  </div>
+</main>
+
+<footer>
+  <div class="wrap">© <span id="yr">2026</span> Lyka Mae L. Entera · Cebu City, Philippines</div>
+</footer>
+
+<script>document.getElementById("yr").textContent = new Date().getFullYear();</script>
+</body>
+</html>
