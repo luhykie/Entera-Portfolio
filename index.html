@@ -1,1530 +1,304 @@
-
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-  <title>Lyka Mae L. Entera | Portfolio</title>
-  <meta name="description" content="Lyka Mae Entera's personal portfolio showcasing software projects, leadership experience, achievements, and cybersecurity learning.">
-  <meta name="theme-color" content="#faf7f2">
-
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Fraunces:opsz,wght@9..144,500;9..144,600;9..144,700&display=swap" rel="stylesheet">
-
-  <style>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Lyka Mae L. Entera | Portfolio</title>
+<meta name="description" content="Lyka Mae L. Entera, BS Information Technology student at the University of San Jose–Recoletos. Web development, cybersecurity and system design.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.googleapis.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,600;9..144,700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #faf7f2;
+    --surface: #ffffff;
+    --text: #1f1b16;
+    --muted: #6b645a;
+    --line: #e6dfd3;
+    --accent: #c2410c;
+    --accent-soft: #fde8dc;
+    --radius: 14px;
+  }
+  @media (prefers-color-scheme: dark) {
     :root {
-      --bg: #faf7f2;
-      --surface: #ffffff;
-      --text: #29231e;
-      --muted: #756b61;
-      --line: #e8dfd4;
-      --accent: #b95130;
-      --accent-dark: #923b23;
-      --accent-soft: #f5e5dc;
-      --radius: 18px;
-      --shadow: 0 12px 36px rgba(65, 42, 25, 0.07);
-    }
-
-    * {
-      box-sizing: border-box;
-    }
-
-    html {
-      scroll-behavior: smooth;
-      scroll-padding-top: 90px;
-    }
-
-    body {
-      margin: 0;
-      background: var(--bg);
-      color: var(--text);
-      font-family: "DM Sans", sans-serif;
-      line-height: 1.7;
-      -webkit-font-smoothing: antialiased;
-    }
-
-    body.menu-open {
-      overflow: hidden;
-    }
-
-    img {
-      max-width: 100%;
-    }
-
-    a {
-      color: inherit;
-    }
-
-    button,
-    a {
-      -webkit-tap-highlight-color: transparent;
-    }
-
-    a:focus-visible,
-    button:focus-visible {
-      outline: 3px solid var(--accent);
-      outline-offset: 4px;
-    }
-
-    .container {
-      width: min(1080px, calc(100% - 40px));
-      margin-inline: auto;
-    }
-
-    .serif,
-    h1,
-    h2,
-    h3 {
-      font-family: "Fraunces", Georgia, serif;
-    }
-
-    .accent {
-      color: var(--accent);
-    }
-
-    .muted {
-      color: var(--muted);
-    }
-
-    /* Navigation */
-
-    .navbar {
-      position: sticky;
-      top: 0;
-      z-index: 100;
-      background: rgba(250, 247, 242, 0.94);
-      border-bottom: 1px solid var(--line);
-      backdrop-filter: blur(14px);
-    }
-
-    .nav-inner {
-      min-height: 72px;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 24px;
-    }
-
-    .brand {
-      font-family: "Fraunces", Georgia, serif;
-      font-size: 1.4rem;
-      font-weight: 700;
-      text-decoration: none;
-      letter-spacing: -0.04em;
-    }
-
-    .brand span {
-      color: var(--accent);
-    }
-
-    .nav-links {
-      display: flex;
-      align-items: center;
-      gap: 25px;
-      list-style: none;
-      margin: 0;
-      padding: 0;
-    }
-
-    .nav-links a {
-      text-decoration: none;
-      color: var(--muted);
-      font-size: 0.91rem;
-      font-weight: 600;
-      transition: color 0.2s;
-    }
-
-    .nav-links a:hover {
-      color: var(--accent);
-    }
-
-    .nav-links .nav-contact {
-      padding: 9px 17px;
-      background: var(--accent);
-      color: white;
-      border-radius: 999px;
-    }
-
-    .nav-links .nav-contact:hover {
-      background: var(--accent-dark);
-      color: white;
-    }
-
-    .menu-toggle {
-      display: none;
-      align-items: center;
-      justify-content: center;
-      width: 44px;
-      height: 44px;
-      border: 1px solid var(--line);
-      background: var(--surface);
-      border-radius: 12px;
-      color: var(--text);
-      font-size: 1.4rem;
-      cursor: pointer;
-    }
-
-    /* Hero */
-
-    .hero {
-      padding: 90px 0 84px;
-    }
-
-    .hero-grid {
-      display: grid;
-      grid-template-columns: 1.25fr 0.75fr;
-      align-items: center;
-      gap: 70px;
-    }
-
-    .eyebrow {
-      display: inline-flex;
-      align-items: center;
-      gap: 9px;
-      color: var(--accent);
-      font-size: 0.83rem;
-      font-weight: 700;
-      letter-spacing: 0.12em;
-      text-transform: uppercase;
-    }
-
-    .status-dot {
-      width: 9px;
-      height: 9px;
-      background: #67946a;
-      border-radius: 50%;
-      box-shadow: 0 0 0 4px #67946a20;
-    }
-
-    .hero h1 {
-      margin: 20px 0;
-      font-size: clamp(3rem, 6.3vw, 5rem);
-      line-height: 1.08;
-      letter-spacing: -0.065em;
-      font-weight: 600;
-    }
-
-    .hero h1 span {
-      color: var(--accent);
-    }
-
-    .hero-description {
-      max-width: 590px;
-      color: var(--muted);
-      font-size: 1.08rem;
-      margin-bottom: 28px;
-    }
-
-    .hero-buttons {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 12px;
-      margin-bottom: 30px;
-    }
-
-    .button {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      gap: 8px;
-      padding: 12px 21px;
-      border: 1.5px solid var(--accent);
-      border-radius: 999px;
-      text-decoration: none;
-      font-weight: 700;
-      font-size: 0.93rem;
-      transition: transform 0.2s, background 0.2s;
-    }
-
-    .button:hover {
-      transform: translateY(-3px);
-    }
-
-    .button-primary {
-      color: #fff;
-      background: var(--accent);
-    }
-
-    .button-primary:hover {
-      background: var(--accent-dark);
-    }
-
-    .button-outline {
-      color: var(--accent);
-      background: transparent;
-    }
-
-    .button-outline:hover {
-      background: var(--accent-soft);
-    }
-
-    .social-links {
-      display: flex;
-      flex-wrap: wrap;
-      align-items: center;
-      gap: 20px;
-    }
-
-    .social-links a {
-      color: var(--muted);
-      text-decoration: none;
-      font-size: 0.9rem;
-      font-weight: 600;
-    }
-
-    .social-links a:hover {
-      color: var(--accent);
-    }
-
-    /* Profile picture */
-
-    .portrait-wrap {
-      position: relative;
-      width: 100%;
-      max-width: 365px;
-      justify-self: end;
-    }
-
-    .portrait-frame {
-      position: relative;
-      aspect-ratio: 4 / 5;
-      overflow: hidden;
-      border-radius: 190px 190px 24px 24px;
-      background: var(--accent-soft);
-      border: 1px solid var(--line);
-      box-shadow: var(--shadow);
-    }
-
-    .portrait {
-      width: 100%;
-      height: 100%;
-      display: block;
-      object-fit: cover;
-      object-position: center 35%;
-    }
-
-    .portrait-note {
-      position: absolute;
-      left: -35px;
-      bottom: 28px;
-      max-width: 205px;
-      padding: 15px 19px;
-      border: 1px solid var(--line);
-      border-radius: 14px;
-      background: var(--surface);
-      box-shadow: var(--shadow);
-      font-size: 0.85rem;
-    }
-
-    .portrait-note strong {
-      display: block;
-      color: var(--accent);
-      font-size: 1rem;
-    }
-
-    .portrait-note span {
-      color: var(--muted);
-    }
-
-    /* Shared sections */
-
-    section {
-      padding: 82px 0;
-      border-top: 1px solid var(--line);
-    }
-
-    .section-heading {
-      margin-bottom: 36px;
-    }
-
-    .section-label {
-      margin-bottom: 8px;
-      color: var(--accent);
-      font-size: 0.79rem;
-      font-weight: 700;
-      letter-spacing: 0.14em;
-      text-transform: uppercase;
-    }
-
-    h2 {
-      margin: 0;
-      font-size: clamp(2.1rem, 4vw, 3rem);
-      line-height: 1.2;
-      letter-spacing: -0.045em;
-    }
-
-    .section-intro {
-      max-width: 650px;
-      margin: 14px 0 0;
-      color: var(--muted);
-    }
-
-    /* About */
-
-    .about-grid {
-      display: grid;
-      grid-template-columns: 0.85fr 1.15fr;
-      gap: 55px;
-      align-items: start;
-    }
-
-    .about-note {
-      padding: 28px;
-      border-radius: var(--radius);
-      background: var(--accent-soft);
-    }
-
-    .about-note .big-number {
-      display: block;
-      font-family: "Fraunces", Georgia, serif;
-      font-size: 3.4rem;
-      line-height: 1.1;
-      color: var(--accent);
-    }
-
-    .about-note p {
-      margin-bottom: 0;
-      color: #625044;
-    }
-
-    .about-copy p {
-      margin-top: 0;
-      margin-bottom: 17px;
-      color: var(--muted);
-    }
-
-    .about-copy strong {
-      color: var(--text);
-    }
-
-    /* Cards */
-
-    .project-grid {
-      display: grid;
-      grid-template-columns: repeat(2, minmax(0, 1fr));
-      gap: 24px;
-    }
-
-    .project-card {
-      min-width: 0;
-      overflow: hidden;
-      border: 1px solid var(--line);
-      border-radius: var(--radius);
-      background: var(--surface);
-      transition: transform 0.25s, box-shadow 0.25s,
-        border-color 0.25s;
-    }
-
-    .project-card:hover {
-      transform: translateY(-5px);
-      border-color: #d6b19e;
-      box-shadow: var(--shadow);
-    }
-
-    .project-image-link {
-      display: block;
-      overflow: hidden;
-      background: #f0e7dd;
-    }
-
-    .project-image {
-      display: block;
-      width: 100%;
-      height: 245px;
-      object-fit: cover;
-      transition: transform 0.35s;
-    }
-
-    .project-image.contain {
-      object-fit: contain;
-      padding: 12px;
-    }
-
-    .project-card:hover .project-image {
-      transform: scale(1.025);
-    }
-
-    .project-content {
-      display: flex;
-      flex-direction: column;
-      align-items: flex-start;
-      gap: 12px;
-      height: calc(100% - 245px);
-      min-height: 230px;
-      padding: 24px;
-    }
-
-    .project-role {
-      color: var(--accent);
-      font-size: 0.78rem;
-      font-weight: 700;
-      letter-spacing: 0.07em;
-      text-transform: uppercase;
-    }
-
-    .project-content h3 {
-      margin: 0;
-      font-size: 1.65rem;
-      line-height: 1.2;
-    }
-
-    .project-content p {
-      margin: 0;
-      color: var(--muted);
-      font-size: 0.94rem;
-    }
-
-    .tags {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 7px;
-      margin-top: auto;
-      padding-top: 6px;
-    }
-
-    .tag {
-      display: inline-block;
-      padding: 5px 10px;
-      border-radius: 999px;
-      background: var(--accent-soft);
-      color: var(--accent-dark);
-      font-size: 0.76rem;
-      font-weight: 700;
-    }
-
-    .project-links {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 16px;
-      margin-top: 8px;
-    }
-
-    .text-link {
-      color: var(--accent);
-      font-weight: 700;
-      font-size: 0.9rem;
-      text-decoration: none;
-    }
-
-    .text-link:hover {
-      text-decoration: underline;
-    }
-
-    /* Skills */
-
-    .skill-group {
-      margin-bottom: 30px;
-    }
-
-    .skill-group h3 {
-      margin: 0 0 15px;
-      font-size: 1.3rem;
-    }
-
-    .skill-list {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 11px;
-    }
-
-    .skill {
-      padding: 10px 16px;
-      border: 1px solid var(--line);
-      border-radius: 12px;
-      background: var(--surface);
-      font-size: 0.91rem;
-      font-weight: 600;
-      transition: border-color 0.2s, transform 0.2s;
-    }
-
-    .skill:hover {
-      transform: translateY(-2px);
-      border-color: var(--accent);
-    }
-
-    /* Leadership and education */
-
-    .experience-grid {
-      display: grid;
-      grid-template-columns: repeat(2, minmax(0, 1fr));
-      gap: 45px;
-    }
-
-    .experience-heading {
-      margin: 0 0 24px;
-      font-family: "DM Sans", sans-serif;
-      font-size: 1.05rem;
-      font-weight: 700;
-    }
-
-    .timeline {
-      list-style: none;
-      margin: 0;
-      padding: 0 0 0 22px;
-      border-left: 2px solid var(--line);
-    }
-
-    .timeline li {
-      position: relative;
-      padding: 0 0 28px 16px;
-    }
-
-    .timeline li:last-child {
-      padding-bottom: 0;
-    }
-
-    .timeline li::before {
-      content: "";
-      position: absolute;
-      left: -29px;
-      top: 8px;
-      width: 11px;
-      height: 11px;
-      border: 3px solid var(--bg);
-      border-radius: 50%;
-      background: var(--accent);
-    }
-
-    .timeline strong {
-      display: block;
-      line-height: 1.5;
-    }
-
-    .timeline span {
-      display: block;
-      margin-top: 5px;
-      color: var(--muted);
-      font-size: 0.88rem;
-    }
-
-    .timeline p {
-      margin: 7px 0 0;
-      color: var(--muted);
-      font-size: 0.9rem;
-    }
-
-    /* Achievements */
-
-    .achievement-list {
-      display: grid;
-      grid-template-columns: repeat(2, minmax(0, 1fr));
-      gap: 13px;
-      list-style: none;
-      margin: 0;
-      padding: 0;
-    }
-
-    .achievement-list li {
-      display: flex;
-      align-items: flex-start;
-      gap: 12px;
-      padding: 17px;
-      border: 1px solid var(--line);
-      border-radius: 13px;
-      background: var(--surface);
-    }
-
-    .achievement-icon {
-      display: grid;
-      place-items: center;
-      flex: 0 0 35px;
-      height: 35px;
-      border-radius: 10px;
-      background: var(--accent-soft);
-      color: var(--accent);
-      font-weight: 700;
-    }
-
-    .achievement-list strong {
-      display: block;
-      font-size: 0.93rem;
-      line-height: 1.5;
-    }
-
-    .achievement-list small {
-      display: block;
-      margin-top: 4px;
-      color: var(--muted);
-      font-size: 0.82rem;
-    }
-
-    /* Certificate gallery */
-
-    .certificate-grid {
-      display: grid;
-      grid-template-columns: repeat(3, minmax(0, 1fr));
-      gap: 18px;
-    }
-
-    .certificate {
-      overflow: hidden;
-      border: 1px solid var(--line);
-      border-radius: 14px;
-      background: var(--surface);
-      text-decoration: none;
-      transition: transform 0.2s, box-shadow 0.2s;
-    }
-
-    .certificate:hover {
-      transform: translateY(-4px);
-      box-shadow: var(--shadow);
-    }
-
-    .certificate img {
-      display: block;
-      width: 100%;
-      height: 185px;
-      object-fit: contain;
-      padding: 10px;
-      background: #f2ece5;
-    }
-
-    .certificate span {
-      display: block;
-      padding: 14px;
-      font-size: 0.9rem;
-      font-weight: 700;
-    }
-
-    /* Contact */
-
-    .contact-panel {
-      display: grid;
-      grid-template-columns: 1fr auto;
-      align-items: center;
-      gap: 35px;
-      padding: 42px;
-      border: 1px solid var(--line);
-      border-radius: 24px;
-      background: var(--surface);
-      box-shadow: var(--shadow);
-    }
-
-    .contact-panel h2 {
-      max-width: 520px;
-    }
-
-    .contact-panel p {
-      max-width: 560px;
-      margin-bottom: 0;
-      color: var(--muted);
-    }
-
-    .contact-buttons {
-      display: flex;
-      flex-direction: column;
-      gap: 12px;
-    }
-
-    /* Footer */
-
-    footer {
-      padding: 28px 0;
-      border-top: 1px solid var(--line);
-      color: var(--muted);
-      font-size: 0.85rem;
-    }
-
-    .footer-inner {
-      display: flex;
-      justify-content: space-between;
-      flex-wrap: wrap;
-      gap: 10px 24px;
-    }
-
-    footer p {
-      margin: 0;
-    }
-
-    /* Responsive layout */
-
-    @media (max-width: 850px) {
-      .hero {
-        padding: 65px 0;
-      }
-
-      .hero-grid {
-        grid-template-columns: 1fr 0.7fr;
-        gap: 30px;
-      }
-
-      .hero h1 {
-        font-size: clamp(2.8rem, 7vw, 4rem);
-      }
-
-      .portrait-note {
-        left: -15px;
-      }
-
-      .about-grid {
-        gap: 28px;
-      }
-
-      .certificate-grid {
-        grid-template-columns: repeat(2, minmax(0, 1fr));
-      }
-
-      .contact-panel {
-        padding: 30px;
-      }
-    }
-
-    @media (max-width: 640px) {
-      .container {
-        width: min(100% - 32px, 500px);
-      }
-
-      .nav-inner {
-        min-height: 65px;
-      }
-
-      .menu-toggle {
-        display: inline-flex;
-      }
-
-      .nav-links {
-        display: none;
-        position: absolute;
-        top: 65px;
-        left: 0;
-        right: 0;
-        padding: 20px 24px 24px;
-        flex-direction: column;
-        align-items: stretch;
-        gap: 0;
-        border-bottom: 1px solid var(--line);
-        background: var(--bg);
-      }
-
-      .nav-links.open {
-        display: flex;
-      }
-
-      .nav-links li a {
-        display: block;
-        padding: 12px 4px;
-      }
-
-      .nav-links .nav-contact {
-        text-align: center;
-        margin-top: 8px;
-      }
-
-      .hero {
-        padding: 48px 0 60px;
-      }
-
-      .hero-grid {
-        grid-template-columns: 1fr;
-        gap: 38px;
-      }
-
-      .hero h1 {
-        font-size: clamp(2.8rem, 12vw, 4rem);
-      }
-
-      .hero-description {
-        font-size: 1rem;
-      }
-
-      .portrait-wrap {
-        width: min(82%, 310px);
-        justify-self: center;
-      }
-
-      .portrait-note {
-        left: -22px;
-        bottom: 20px;
-      }
-
-      section {
-        padding: 62px 0;
-      }
-
-      .about-grid,
-      .project-grid,
-      .experience-grid,
-      .achievement-list {
-        grid-template-columns: 1fr;
-      }
-
-      .about-note {
-        padding: 22px;
-      }
-
-      .project-image {
-        height: 220px;
-      }
-
-      .project-content {
-        height: auto;
-        min-height: 230px;
-        padding: 20px;
-      }
-
-      .certificate-grid {
-        grid-template-columns: 1fr;
-      }
-
-      .certificate img {
-        height: 220px;
-      }
-
-      .contact-panel {
-        grid-template-columns: 1fr;
-        padding: 25px;
-      }
-
-      .contact-buttons {
-        flex-direction: row;
-        flex-wrap: wrap;
-      }
-
-      .footer-inner {
-        flex-direction: column;
-      }
-    }
-
-    @media (prefers-reduced-motion: reduce) {
-      *,
-      *::before,
-      *::after {
-        scroll-behavior: auto !important;
-        transition-duration: 0.01ms !important;
-        animation-duration: 0.01ms !important;
-      }
-    }
-  </style>
+      --bg: #15120f;
+      --surface: #1e1a16;
+      --text: #f3ede4;
+      --muted: #a99f90;
+      --line: #322c25;
+      --accent: #fb923c;
+      --accent-soft: #3a2415;
+    }
+  }
+  * { box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  body {
+    margin: 0; background: var(--bg); color: var(--text);
+    font-family: "Inter", system-ui, sans-serif; line-height: 1.65;
+    -webkit-font-smoothing: antialiased;
+  }
+  a { color: inherit; }
+  .wrap { max-width: 1040px; margin: 0 auto; padding: 0 20px; }
+  header.nav {
+    position: sticky; top: 0; z-index: 10;
+    background: color-mix(in srgb, var(--bg) 88%, transparent);
+    backdrop-filter: blur(8px); border-bottom: 1px solid var(--line);
+  }
+  .nav .wrap { display: flex; align-items: center; justify-content: space-between; min-height: 60px; gap: 18px; }
+  .logo { font-family: "Fraunces", serif; font-weight: 700; text-decoration: none; font-size: 1.1rem; white-space: nowrap; }
+  .nav ul { display: flex; flex-wrap: wrap; gap: 18px; list-style: none; margin: 0; padding: 0; }
+  .nav ul a { text-decoration: none; color: var(--muted); font-size: .9rem; font-weight: 500; }
+  .nav ul a:hover { color: var(--accent); }
+  .hero { padding: 72px 0 56px; display: grid; grid-template-columns: minmax(0, 1fr) 220px; align-items: center; gap: 42px; }
+  .eyebrow { color: var(--accent); font-weight: 600; font-size: .9rem; letter-spacing: .04em; text-transform: uppercase; }
+  .hero h1 { font-family: "Fraunces", serif; font-size: clamp(2.4rem, 7vw, 4rem); line-height: 1.08; margin: 10px 0 18px; }
+  .hero p.lead { font-size: 1.15rem; color: var(--muted); max-width: 620px; margin: 0 0 28px; }
+  .profile-photo { width: 210px; aspect-ratio: 1; object-fit: cover; border-radius: 50%; border: 5px solid var(--surface); box-shadow: 0 0 0 1px var(--line); }
+  .btns { display: flex; flex-wrap: wrap; gap: 12px; }
+  .btn { display: inline-block; padding: 11px 20px; border-radius: 999px; text-decoration: none; font-weight: 600; font-size: .95rem; border: 1.5px solid var(--accent); transition: transform .15s ease; }
+  .btn:hover { transform: translateY(-2px); }
+  .btn.primary { background: var(--accent); color: #fff; }
+  .btn.ghost { color: var(--accent); }
+  @media (prefers-color-scheme: dark) { .btn.primary { color: #1a0f07; } }
+  section { padding: 56px 0; border-top: 1px solid var(--line); }
+  h2 { font-family: "Fraunces", serif; font-size: 1.9rem; margin: 0 0 28px; }
+  .about p { max-width: 760px; margin: 0 0 14px; }
+  .grid { display: grid; gap: 20px; grid-template-columns: repeat(auto-fit, minmax(270px, 1fr)); align-items: stretch; }
+  .card { background: var(--surface); border: 1px solid var(--line); border-radius: var(--radius); overflow: hidden; display: flex; flex-direction: column; transition: transform .2s ease, border-color .2s ease; min-width: 0; }
+  .card:hover { transform: translateY(-3px); border-color: var(--accent); }
+  .project-image { width: 100%; aspect-ratio: 16 / 9; background: var(--accent-soft); overflow: hidden; border-bottom: 1px solid var(--line); }
+  .project-image img { display: block; width: 100%; height: 100%; object-fit: cover; }
+  .project-content { padding: 20px; display: flex; flex-direction: column; align-items: flex-start; gap: 10px; flex: 1; }
+  .card h3 { margin: 0; font-size: 1.15rem; }
+  .card p { margin: 0; color: var(--muted); font-size: .95rem; }
+  .role { font-size: .82rem; font-weight: 600; color: var(--accent); }
+  .tags { display: flex; flex-wrap: wrap; gap: 6px; margin-top: auto; padding-top: 8px; }
+  .tag { background: var(--accent-soft); color: var(--accent); font-size: .78rem; font-weight: 600; padding: 3px 10px; border-radius: 999px; }
+  .card a.link { margin-top: 4px; font-size: .9rem; font-weight: 600; color: var(--accent); text-decoration: none; }
+  .card a.link:hover { text-decoration: underline; }
+  .skills { display: flex; flex-wrap: wrap; gap: 10px; }
+  .skills span { background: var(--surface); border: 1px solid var(--line); padding: 7px 16px; border-radius: 999px; font-weight: 500; font-size: .92rem; }
+  .sub { color: var(--muted); font-size: .85rem; font-weight: 600; text-transform: uppercase; letter-spacing: .05em; margin: 24px 0 10px; }
+  .sub:first-of-type { margin-top: 0; }
+  .timeline { list-style: none; margin: 0; padding: 0; border-left: 2px solid var(--line); }
+  .timeline li { position: relative; padding: 0 0 22px 24px; }
+  .timeline li::before { content: ""; position: absolute; left: -7px; top: 7px; width: 12px; height: 12px; border-radius: 50%; background: var(--accent); border: 2px solid var(--bg); }
+  .timeline strong { display: block; }
+  .timeline span { color: var(--muted); font-size: .92rem; }
+  ul.plain { list-style: none; margin: 0; padding: 0; display: grid; gap: 10px; }
+  ul.plain li { background: var(--surface); border: 1px solid var(--line); border-radius: 10px; padding: 12px 16px; }
+  .contact p { max-width: 560px; color: var(--muted); }
+  footer { padding: 28px 0 40px; border-top: 1px solid var(--line); color: var(--muted); font-size: .88rem; }
+  @media (max-width: 720px) {
+    .nav .wrap { align-items: flex-start; flex-direction: column; padding-top: 12px; padding-bottom: 12px; }
+    .nav ul { gap: 8px 14px; }
+    .hero { grid-template-columns: 1fr; padding-top: 48px; gap: 26px; }
+    .profile-photo { grid-row: 1; width: 145px; }
+  }
+  @media (max-width: 420px) { .wrap { padding: 0 15px; } .grid { grid-template-columns: 1fr; } }
+</style>
 </head>
-
 <body>
+<header class="nav">
+  <div class="wrap">
+    <a class="logo" href="#top">Lyka Entera</a>
+    <nav aria-label="Main navigation">
+      <ul>
+        <li><a href="#about">About</a></li>
+        <li><a href="#projects">Projects</a></li>
+        <li><a href="#skills">Skills</a></li>
+        <li><a href="#experience">Experience</a></li>
+        <li><a href="#achievements">Achievements</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
 
-  <!-- NAVIGATION -->
-  <header class="navbar">
-    <div class="container nav-inner">
-      <a class="brand" href="#home">Lyka<span>.</span></a>
-
-      <button
-        class="menu-toggle"
-        id="menuToggle"
-        aria-label="Open navigation menu"
-        aria-expanded="false"
-        aria-controls="navLinks"
-        type="button"
-      >☰</button>
-
-      <nav aria-label="Main navigation">
-        <ul class="nav-links" id="navLinks">
-          <li><a href="#about">About</a></li>
-          <li><a href="#projects">Projects</a></li>
-          <li><a href="#skills">Skills</a></li>
-          <li><a href="#experience">Experience</a></li>
-          <li><a href="#achievements">Achievements</a></li>
-          <li><a class="nav-contact" href="#contact">Let's Connect ↗</a></li>
-        </ul>
-      </nav>
+<main id="top">
+  <div class="wrap">
+    <div class="hero">
+      <div>
+        <div class="eyebrow">BS Information Technology · Class of 2027</div>
+        <h1>Hi, I'm Lyka Mae Entera.</h1>
+        <p class="lead">A student leader and developer who builds web projects and is growing into cybersecurity and system design.</p>
+        <div class="btns">
+          <a class="btn primary" href="#projects">See my projects</a>
+          <a class="btn ghost" href="#contact">Get in touch</a>
+        </div>
+      </div>
+      <img class="profile-photo" src="PFP.jpg" alt="Portrait of Lyka Mae Entera">
     </div>
-  </header>
 
-  <main>
-
-    <!-- HERO -->
-    <section class="hero" id="home" style="border-top: none;">
-      <div class="container hero-grid">
-
-        <div>
-          <div class="eyebrow">
-            <span class="status-dot"></span>
-            BS Information Technology · Class of 2027
-          </div>
-
-          <h1>
-            Hi, I'm<br>
-            <span>Lyka Mae</span><br>
-            Entera.
-          </h1>
-
-          <p class="hero-description">
-            A student leader and aspiring developer passionate about
-            building meaningful digital solutions, exploring cybersecurity,
-            and designing systems that solve real-world problems.
-          </p>
-
-          <div class="hero-buttons">
-            <a class="button button-primary" href="#projects">
-              Explore My Work ↗
-            </a>
-            <a class="button button-outline" href="#contact">
-              Get in Touch
-            </a>
-          </div>
-
-          <div class="social-links">
-            <a href="https://github.com/luhykie"
-               target="_blank" rel="noopener noreferrer">GitHub ↗</a>
-            <a href="mailto:lykaentera@gmail.com">Email ↗</a>
-          </div>
-        </div>
-
-        <div class="portrait-wrap">
-          <div class="portrait-frame">
-            <img
-              class="portrait"
-              src="PFP.png"
-              alt="Portrait of Lyka Mae Entera"
-              fetchpriority="high"
-            >
-          </div>
-
-          <div class="portrait-note">
-            <strong>Curious by nature.</strong>
-            <span>Driven to learn, build, and lead.</span>
-          </div>
-        </div>
-
-      </div>
+    <section id="about" class="about">
+      <h2>About me</h2>
+      <p>I'm a 4th-year BS Information Technology student at the University of San Jose–Recoletos in Cebu City, expected to graduate in June 2027.</p>
+      <p>I lead my capstone team and have held several officer roles in the Information and Computer Technology Organization (ICTO). I never submit a project just to pass it, and I like the pressure of leading because it pushes me to do more.</p>
+      <p>Web development is where I started. Cybersecurity is where my curiosity is heading now.</p>
     </section>
 
-    <!-- ABOUT -->
-    <section id="about">
-      <div class="container">
-        <div class="section-heading">
-          <div class="section-label">A little about me</div>
-          <h2>Building with purpose.<br><span class="accent">Growing with every challenge.</span></h2>
-        </div>
-
-        <div class="about-grid">
-          <div class="about-note">
-            <span class="big-number">01</span>
-            <p>
-              I believe every project is an opportunity to learn something
-              new, solve a problem, and create something meaningful.
-            </p>
-          </div>
-
-          <div class="about-copy">
-            <p>
-              I'm a <strong>fourth-year BS Information Technology student</strong>
-              at the University of San Jose–Recoletos in Cebu City,
-              Philippines, with an expected graduation date of June 2027.
-            </p>
-
-            <p>
-              Throughout college, I've explored web development, database
-              management, software engineering, system design, and
-              cybersecurity. I enjoy turning ideas into practical projects
-              and learning how technology can make everyday processes better.
-            </p>
-
-            <p>
-              Beyond development, I've taken on leadership responsibilities
-              in the Information and Computer Technology Organization
-              (ICTO). These experiences have strengthened my communication,
-              project coordination, adaptability, and teamwork.
-            </p>
-
-            <p>
-              Web development is where my journey began.
-              <strong>Cybersecurity is where my curiosity is growing.</strong>
-              I'm continuing to build my skills, one challenge at a time.
-            </p>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- PROJECTS -->
     <section id="projects">
-      <div class="container">
-        <div class="section-heading">
-          <div class="section-label">Selected work</div>
-          <h2>Projects I've <span class="accent">worked on.</span></h2>
-          <p class="section-intro">
-            A collection of academic projects, product concepts, and
-            experiences that reflect my growth as a technology student.
-          </p>
-        </div>
+      <h2>Projects</h2>
+      <div class="grid">
+        <article class="card">
+          <div class="project-image"><img src="logo.png" alt="Conexia project preview" loading="lazy"></div>
+          <div class="project-content">
+            <div class="role">Capstone · Project Leader</div>
+            <h3>CONEXIA</h3>
+            <p>An intelligent document management system with workflow automation for international and local collaborations.</p>
+            <div class="tags"><span class="tag">Capstone</span><span class="tag">Workflow Automation</span><span class="tag">Document Management</span></div>
+          </div>
+        </article>
 
-        <div class="project-grid">
+        <article class="card">
+          <div class="project-image"><img src="ideathon.png" alt="SCS Days 2026 Ideathon certificate" loading="lazy"></div>
+          <div class="project-content">
+            <div class="role">Solo · 24-hour hackathon</div>
+            <h3>Biyahero</h3>
+            <p>Built alone in 24 hours during the SCS Days 2026 Hackathon. The project went on to place 1st Runner-Up at the SCS Days 2026 Ideathon.</p>
+            <div class="tags"><span class="tag">Hackathon</span><span class="tag">1st Runner-Up</span></div>
+          </div>
+        </article>
 
-          <!-- CONEXIA -->
-          <article class="project-card">
-            <a class="project-image-link"
-               href="Screenshot%202026-10-23%20002006.png"
-               target="_blank" rel="noopener noreferrer">
-              <img
-                class="project-image contain"
-                src="Screenshot%202026-10-23%20002006.png"
-                alt="Conexia project image"
-                loading="lazy"
-              >
-            </a>
+        <article class="card">
+          <div class="project-image"><img src="SheMoves.png" alt="SheMoves project preview" loading="lazy"></div>
+          <div class="project-content">
+            <div class="role">Technopreneurship Project</div>
+            <h3>SheMoves</h3>
+            <p>A women-focused passenger transportation app concept designed to help women feel more comfortable when arranging rides.</p>
+            <div class="tags"><span class="tag">Mobile App Concept</span><span class="tag">Transportation</span></div>
+          </div>
+        </article>
 
-            <div class="project-content">
-              <div class="project-role">Capstone · Project Leader</div>
-              <h3>Conexia</h3>
-              <p>
-                An intelligent document management system with workflow
-                automation for international and local collaborations.
-                Designed to streamline partnership documents, approvals,
-                records, and engagement tracking at USJ-R.
-              </p>
-              <div class="tags">
-                <span class="tag">Capstone</span>
-                <span class="tag">Document Management</span>
-                <span class="tag">Workflow Automation</span>
-              </div>
-            </div>
-          </article>
+        <article class="card">
+          <div class="project-image"><img src="LIFE.png" alt="LIFE health information system preview" loading="lazy"></div>
+          <div class="project-content">
+            <div class="role">Team Lead</div>
+            <h3>LIFE · Local Information for Health Efficiency</h3>
+            <p>A community-focused health information system designed to support patient record management and improve access to local health information.</p>
+            <div class="tags"><span class="tag">Team Leadership</span><span class="tag">Flask</span><span class="tag">Python</span><span class="tag">MySQL</span></div>
+            <a class="link" href="https://selife.onrender.com/" target="_blank" rel="noopener noreferrer">View Live Project ↗</a>
+          </div>
+        </article>
 
-          <!-- BIYAHERO -->
-          <article class="project-card">
-            <a class="project-image-link"
-               href="Biyahero-Ideathon.jpg"
-               target="_blank" rel="noopener noreferrer">
-              <img
-                class="project-image"
-                src="Biyahero-Ideathon.jpg"
-                alt="Biyahero project and Ideathon achievement"
-                loading="lazy"
-              >
-            </a>
+        <article class="card">
+          <div class="project-image"><img src="REVORA.png" alt="Re-Vora project preview" loading="lazy"></div>
+          <div class="project-content">
+            <div class="role">Web Development Project</div>
+            <h3>Re-Vora</h3>
+            <p>A web-based project. Visit the live site to explore the project and its features.</p>
+            <div class="tags"><span class="tag">Web Development</span></div>
+            <a class="link" href="https://re-vora.netlify.app/" target="_blank" rel="noopener noreferrer">View Live Project ↗</a>
+          </div>
+        </article>
 
-            <div class="project-content">
-              <div class="project-role">Solo Project · 24-hour Hackathon</div>
-              <h3>Biyahero</h3>
-              <p>
-                A mobile-responsive travel-planning concept for people
-                exploring Cebu. It focuses on helping travelers discover
-                destinations and plan trips with practical travel information.
-                Developed independently during SCS Days 2026.
-              </p>
-              <div class="tags">
-                <span class="tag">Travel Technology</span>
-                <span class="tag">Hackathon</span>
-                <span class="tag">1st Runner-Up</span>
-              </div>
-            </div>
-          </article>
-
-          <!-- SHEMOVES -->
-          <article class="project-card">
-            <a class="project-image-link"
-               href="SheMoves.png"
-               target="_blank" rel="noopener noreferrer">
-              <img
-                class="project-image contain"
-                src="SheMoves.png"
-                alt="SheMoves transportation project concept"
-                loading="lazy"
-              >
-            </a>
-
-            <div class="project-content">
-              <div class="project-role">Technopreneurship</div>
-              <h3>SheMoves</h3>
-              <p>
-                A women-focused passenger transportation concept
-                centered on connecting women passengers with verified
-                female drivers and supporting a more comfortable travel
-                experience.
-              </p>
-              <div class="tags">
-                <span class="tag">Innovation</span>
-                <span class="tag">Transportation</span>
-                <span class="tag">Product Concept</span>
-              </div>
-            </div>
-          </article>
-
-          <!-- RECOLOST -->
-          <article class="project-card">
-            <div class="project-image-link">
-              <img
-                class="project-image contain"
-                src="ideathon.png"
-                alt="Project and academic work preview"
-                loading="lazy"
-              >
-            </div>
-
-            <div class="project-content">
-              <div class="project-role">Academic Project</div>
-              <h3>RECOLOST</h3>
-              <p>
-                A lost-and-found management system concept for USJ-R
-                that uses item descriptions, images, and matching
-                information to help students recover misplaced belongings.
-              </p>
-              <div class="tags">
-                <span class="tag">Information Systems</span>
-                <span class="tag">Smart Matching</span>
-                <span class="tag">Academic Research</span>
-              </div>
-            </div>
-          </article>
-
-        </div>
+        <article class="card">
+          <div class="project-image"><img src="advent.png" alt="Advent of Cyber 2025" loading="lazy"></div>
+          <div class="project-content">
+            <div class="role">Cybersecurity · Self-paced</div>
+            <h3>Advent of Cyber 2025</h3>
+            <p>Completed daily cybersecurity challenges, building practical familiarity with security concepts and hands-on exercises.</p>
+            <div class="tags"><span class="tag">Cybersecurity</span><span class="tag">TryHackMe</span></div>
+          </div>
+        </article>
       </div>
     </section>
 
-    <!-- SKILLS -->
     <section id="skills">
-      <div class="container">
-        <div class="section-heading">
-          <div class="section-label">What I work with</div>
-          <h2>Skills & <span class="accent">technologies.</span></h2>
-          <p class="section-intro">
-            Technologies I've studied and used throughout my academic
-            projects, alongside the professional skills I've developed
-            through collaboration and leadership.
-          </p>
-        </div>
-
-        <div class="skill-group">
-          <h3>Programming & Web Development</h3>
-          <div class="skill-list">
-            <span class="skill">HTML5</span>
-            <span class="skill">CSS3</span>
-            <span class="skill">JavaScript</span>
-            <span class="skill">Python</span>
-            <span class="skill">PHP</span>
-            <span class="skill">C++</span>
-            <span class="skill">React.js</span>
-            <span class="skill">Laravel</span>
-          </div>
-        </div>
-
-        <div class="skill-group">
-          <h3>Databases & Tools</h3>
-          <div class="skill-list">
-            <span class="skill">MySQL</span>
-            <span class="skill">MariaDB</span>
-            <span class="skill">Git</span>
-            <span class="skill">GitHub</span>
-            <span class="skill">Figma</span>
-            <span class="skill">PlantUML</span>
-          </div>
-        </div>
-
-        <div class="skill-group">
-          <h3>Areas of Interest</h3>
-          <div class="skill-list">
-            <span class="skill">Cybersecurity</span>
-            <span class="skill">System Design</span>
-            <span class="skill">Software Engineering</span>
-            <span class="skill">Database Design</span>
-            <span class="skill">Workflow Automation</span>
-          </div>
-        </div>
-
-        <div class="skill-group">
-          <h3>Professional Strengths</h3>
-          <div class="skill-list">
-            <span class="skill">Project Coordination</span>
-            <span class="skill">Leadership</span>
-            <span class="skill">Adaptability</span>
-            <span class="skill">Attention to Detail</span>
-            <span class="skill">Active Listening</span>
-            <span class="skill">Conflict Resolution</span>
-            <span class="skill">Team Collaboration</span>
-          </div>
-        </div>
+      <h2>Skills</h2>
+      <div class="sub">Technologies</div>
+      <div class="skills">
+        <span>C++</span><span>JavaScript</span><span>Python</span><span>PHP</span>
+        <span>MySQL</span><span>HTML</span><span>CSS</span><span>React.js</span>
+        <span>Flask</span><span>Tailwind CSS</span>
+      </div>
+      <div class="sub">Strengths</div>
+      <div class="skills">
+        <span>Project Management</span><span>Detail Oriented</span><span>Adaptability</span>
+        <span>Resilient</span><span>Active Listening</span><span>Conflict Resolution</span>
       </div>
     </section>
 
-    <!-- EXPERIENCE AND EDUCATION -->
     <section id="experience">
-      <div class="container">
-        <div class="section-heading">
-          <div class="section-label">My journey</div>
-          <h2>Leadership & <span class="accent">education.</span></h2>
-        </div>
-
-        <div class="experience-grid">
-
-          <div>
-            <h3 class="experience-heading">Leadership Experience</h3>
-            <ul class="timeline">
-              <li>
-                <strong>Organization Consultant</strong>
-                <span>ICTO · 2026 – Present</span>
-                <p>
-                  Supporting the organization through guidance,
-                  coordination, and knowledge gained from previous
-                  leadership experience.
-                </p>
-              </li>
-
-              <li>
-                <strong>Vice President, Ways & Means</strong>
-                <span>ICTO · 2025 – 2026</span>
-              </li>
-
-              <li>
-                <strong>Vice President, External</strong>
-                <span>ICTO · 2024 – 2025</span>
-              </li>
-            </ul>
-          </div>
-
-          <div>
-            <h3 class="experience-heading">Education</h3>
-            <ul class="timeline">
-              <li>
-                <strong>BS Information Technology</strong>
-                <span>
-                  University of San Jose–Recoletos · 2023 – Present
-                </span>
-                <p>Expected graduation: June 2027</p>
-              </li>
-
-              <li>
-                <strong>Senior High School · STEM</strong>
-                <span>Southwestern University PHINMA · 2021 – 2023</span>
-              </li>
-            </ul>
-          </div>
-
-        </div>
-      </div>
+      <h2>Leadership &amp; Education</h2>
+      <div class="sub">ICTO · University of San Jose–Recoletos</div>
+      <ul class="timeline">
+        <li><strong>Organization Consultant</strong><span>2026 – Present</span></li>
+        <li><strong>Vice President, Ways &amp; Means</strong><span>2025 – 2026</span></li>
+        <li><strong>Vice President, External</strong><span>2024 – 2025</span></li>
+      </ul>
+      <div class="sub">Education</div>
+      <ul class="timeline">
+        <li><strong>BS Information Technology, University of San Jose–Recoletos</strong><span>2023 – Present · Expected June 2027</span></li>
+        <li><strong>Senior High School (STEM), South Western University PHINMA</strong><span>2021 – 2023</span></li>
+      </ul>
     </section>
 
-    <!-- ACHIEVEMENTS -->
     <section id="achievements">
-      <div class="container">
-        <div class="section-heading">
-          <div class="section-label">Milestones</div>
-          <h2>Achievements & <span class="accent">recognition.</span></h2>
-        </div>
-
-        <ul class="achievement-list">
-          <li>
-            <span class="achievement-icon">01</span>
-            <div>
-              <strong>1st Runner-Up · SCS Days 2026 Ideathon</strong>
-              <small>Recognition for Biyahero</small>
-            </div>
-          </li>
-
-          <li>
-            <span class="achievement-icon">02</span>
-            <div>
-              <strong>SCS Days 2026 Hackathon</strong>
-              <small>Independent 24-hour project development</small>
-            </div>
-          </li>
-
-          <li>
-            <span class="achievement-icon">03</span>
-            <div>
-              <strong>Advent of Cyber 2025</strong>
-              <small>Hands-on cybersecurity challenges</small>
-            </div>
-          </li>
-
-          <li>
-            <span class="achievement-icon">04</span>
-            <div>
-              <strong>Introduction to Cybersecurity</strong>
-              <small>Cisco Networking Academy</small>
-            </div>
-          </li>
-
-          <li>
-            <span class="achievement-icon">05</span>
-            <div>
-              <strong>Blockchain Technology Workshop</strong>
-              <small>CashScript smart contracts · Paytaca</small>
-            </div>
-          </li>
-
-          <li>
-            <span class="achievement-icon">06</span>
-            <div>
-              <strong>Academic Recognition</strong>
-              <small>
-                Academic Excellence, Eloquent Speaker, and Best in Research
-                in earlier school years
-              </small>
-            </div>
-          </li>
-        </ul>
-      </div>
+      <h2>Achievements &amp; Certifications</h2>
+      <ul class="plain">
+        <li>1st Runner-Up, SCS Days 2026 Ideathon</li>
+        <li>Participant, SCS Days 2026 Hackathon</li>
+        <li>Participant, Advent of Cyber 2025</li>
+        <li>Participant, 2-Day Blockchain Tech Workshop on Coding Smart Contracts in CashScript by Paytaca</li>
+        <li>Course Completer, NetAcad: Introduction to Cybersecurity</li>
+        <li>Academic Excellence Award · Eloquent Speaker Award · Best in Research (earlier years)</li>
+      </ul>
     </section>
 
-    <!-- CERTIFICATES -->
     <section id="certificates">
-      <div class="container">
-        <div class="section-heading">
-          <div class="section-label">Continuous learning</div>
-          <h2>Certificates & <span class="accent">learning.</span></h2>
-          <p class="section-intro">
-            A visual collection of cybersecurity learning, technical
-            activities, and other achievements. Select an image to view
-            the full file.
-          </p>
-        </div>
-
-        <div class="certificate-grid">
-
-          <a class="certificate"
-             href="introduction-to-cybersecurity.png"
-             target="_blank" rel="noopener noreferrer">
-            <img
-              src="introduction-to-cybersecurity.png"
-              alt="Introduction to Cybersecurity certificate"
-              loading="lazy"
-            >
-            <span>Introduction to Cybersecurity ↗</span>
-          </a>
-
-          <a class="certificate"
-             href="ENTERA-PICOCTF.png"
-             target="_blank" rel="noopener noreferrer">
-            <img
-              src="ENTERA-PICOCTF.png"
-              alt="PicoCTF activity or achievement"
-              loading="lazy"
-            >
-            <span>PicoCTF ↗</span>
-          </a>
-
-          <a class="certificate"
-             href="ENTERA-PORTSWIGGER.png"
-             target="_blank" rel="noopener noreferrer">
-            <img
-              src="ENTERA-PORTSWIGGER.png"
-              alt="PortSwigger activity or achievement"
-              loading="lazy"
-            >
-            <span>PortSwigger ↗</span>
-          </a>
-
-          <a class="certificate"
-             href="HUAWEI%20AI_ENTERA.jpg"
-             target="_blank" rel="noopener noreferrer">
-            <img
-              src="HUAWEI%20AI_ENTERA.jpg"
-              alt="Huawei AI learning achievement"
-              loading="lazy"
-            >
-            <span>Huawei AI ↗</span>
-          </a>
-
-          <a class="certificate"
-             href="paytaca.png"
-             target="_blank" rel="noopener noreferrer">
-            <img
-              src="paytaca.png"
-              alt="Paytaca blockchain workshop"
-              loading="lazy"
-            >
-            <span>Blockchain Workshop · Paytaca ↗</span>
-          </a>
-
-          <a class="certificate"
-             href="ideathon.png"
-             target="_blank" rel="noopener noreferrer">
-            <img
-              src="ideathon.png"
-              alt="SCS Days Ideathon recognition"
-              loading="lazy"
-            >
-            <span>SCS Days Ideathon ↗</span>
-          </a>
-
-        </div>
+      <h2>Certificates</h2>
+      <div class="grid">
+        <article class="card">
+          <div class="project-image"><img src="ideathon.png" alt="SCS Days 2026 Ideathon certificate" loading="lazy"></div>
+          <div class="project-content"><h3>SCS Days 2026 Ideathon</h3><p>1st Runner-Up</p></div>
+        </article>
+        <article class="card">
+          <div class="project-image"><img src="introduction-to-cybersecurity.png" alt="Introduction to Cybersecurity certificate" loading="lazy"></div>
+          <div class="project-content"><h3>Introduction to Cybersecurity</h3><p>Cisco Networking Academy</p></div>
+        </article>
+        <article class="card">
+          <div class="project-image"><img src="ENTERA-PICOCTF.png" alt="picoCTF certificate" loading="lazy"></div>
+          <div class="project-content"><h3>picoCTF</h3><p>Cybersecurity challenge participation</p></div>
+        </article>
+        <article class="card">
+          <div class="project-image"><img src="ENTERA-PORTSWIGGER.png" alt="PortSwigger certificate" loading="lazy"></div>
+          <div class="project-content"><h3>PortSwigger</h3><p>Web security learning</p></div>
+        </article>
+        <article class="card">
+          <div class="project-image"><img src="HUAWEI%20AI_ENTERA.jpg" alt="Huawei AI certificate" loading="lazy"></div>
+          <div class="project-content"><h3>Huawei AI</h3></div>
+        </article>
+        <article class="card">
+          <div class="project-image"><img src="paytaca.png" alt="Paytaca blockchain workshop certificate" loading="lazy"></div>
+          <div class="project-content"><h3>Paytaca Blockchain Workshop</h3><p>Coding Smart Contracts in CashScript</p></div>
+        </article>
       </div>
     </section>
 
-    <!-- CONTACT -->
-    <section id="contact">
-      <div class="container">
-        <div class="contact-panel">
-          <div>
-            <div class="section-label">Have a project in mind?</div>
-            <h2>Let's build something <span class="accent">meaningful.</span></h2>
-            <p>
-              I'm open to internship opportunities, mentorship,
-              collaborations, and projects where I can continue learning
-              and contribute my skills.
-            </p>
-          </div>
-
-          <div class="contact-buttons">
-            <a class="button button-primary"
-               href="mailto:lykaentera@gmail.com">
-              Email Me ↗
-            </a>
-            <a class="button button-outline"
-               href="https://github.com/luhykie"
-               target="_blank" rel="noopener noreferrer">
-              GitHub Profile ↗
-            </a>
-          </div>
-        </div>
+    <section id="contact" class="contact">
+      <h2>Let's connect</h2>
+      <p>I'm open to internships, mentorship, and projects where I can learn and contribute.</p>
+      <div class="btns">
+        <a class="btn primary" href="mailto:lykaentera@gmail.com">Email me</a>
+        <a class="btn ghost" href="https://github.com/luhykie" target="_blank" rel="noopener noreferrer">GitHub</a>
       </div>
     </section>
+  </div>
+</main>
 
-  </main>
+<footer>
+  <div class="wrap">© <span id="yr">2026</span> Lyka Mae L. Entera · Cebu City, Philippines</div>
+</footer>
+<script>
+  document.getElementById("yr").textContent = new Date().getFullYear();
 
-  <!-- FOOTER -->
-  <footer>
-    <div class="container footer-inner">
-      <p>© <span id="year"></span> Lyka Mae L. Entera</p>
-      <p>Designed with purpose · Cebu City, Philippines</p>
-    </div>
-  </footer>
-
-  <script>
-    // Update the copyright year automatically.
-    document.getElementById("year").textContent =
-      new Date().getFullYear();
-
-    // Mobile navigation menu.
-    const menuToggle = document.getElementById("menuToggle");
-    const navLinks = document.getElementById("navLinks");
-
-    function closeMenu() {
-      navLinks.classList.remove("open");
-      document.body.classList.remove("menu-open");
-      menuToggle.setAttribute("aria-expanded", "false");
-      menuToggle.setAttribute("aria-label", "Open navigation menu");
-      menuToggle.textContent = "☰";
-    }
-
-    menuToggle.addEventListener("click", function () {
-      const isOpen = navLinks.classList.toggle("open");
-
-      document.body.classList.toggle("menu-open", isOpen);
-      menuToggle.setAttribute("aria-expanded", String(isOpen));
-      menuToggle.setAttribute(
-        "aria-label",
-        isOpen ? "Close navigation menu" : "Open navigation menu"
-      );
-      menuToggle.textContent = isOpen ? "×" : "☰";
+  // Report missing images in the browser console to help troubleshoot filenames.
+  document.querySelectorAll("img").forEach(function (img) {
+    img.addEventListener("error", function () {
+      console.warn("Image could not be loaded. Check the filename and extension:", img.getAttribute("src"));
     });
-
-    navLinks.querySelectorAll("a").forEach(function (link) {
-      link.addEventListener("click", closeMenu);
-    });
-
-    window.addEventListener("resize", function () {
-      if (window.innerWidth > 640) {
-        closeMenu();
-      }
-    });
-
-    // Log missing images in the browser console for easier troubleshooting.
-    document.querySelectorAll("img").forEach(function (img) {
-      img.addEventListener("error", function () {
-        console.warn("Image could not be loaded:", img.getAttribute("src"));
-      });
-    });
-  </script>
-
+  });
+</script>
 </body>
 </html>
